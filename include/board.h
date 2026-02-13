@@ -29,8 +29,8 @@ public:
         delete[] m_array;
     }
 
-    Cell& at(int r, int c) { return m_array[m_rows * r + c]; }
-    const Cell& at(int r, int c) const { return m_array[m_rows * r + c]; }
+    Cell& at(int r, int c) { return m_array[r * m_cols + c]; }
+    const Cell& at(int r, int c) const { return m_array[r * m_cols + c]; }
 
     void display() const;
 
