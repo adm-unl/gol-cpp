@@ -40,7 +40,7 @@ int main()
     int cols{ 50 };
     double density{ 0.5 };
 
-    Board b{ rows, cols };
+    Board board{ rows, cols };
     board.randomise(density);
 
     while (true)
