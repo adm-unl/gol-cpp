@@ -29,6 +29,7 @@ ctest --test-dir build
 
 ```c++
 #include "board.h"
+#include <iostream>
 #include <chrono>
 #include <thread>
 
@@ -45,7 +46,7 @@ int main()
 
     while (true)
     {
-        board.display();
+        std::cout << board;
         board.update();
         std::this_thread::sleep_for(200ms);
     }
