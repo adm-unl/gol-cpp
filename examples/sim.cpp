@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 
     while (true)
     {
-        board.display();
+        std::cout << board;
         board.update();
         std::this_thread::sleep_for(100ms);
     }

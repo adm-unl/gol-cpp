@@ -6,21 +6,21 @@
 
 #include "board.h"
 
-void Board::display() const
+std::ostream& operator<<(std::ostream& out, const Board& b)
 {
-    for (int i{0}; i < num_clear_console_lines; ++i)
-        std::cout << '\n';
+    out << "\033[2j\033[H"; // clear console and moves cursor to top-left
 
-   for (int i{0}; i < m_rows; ++i)
+    for (int i{0}; i < b.m_rows; ++i)
     {
-        for (int j{0}; j < m_cols; ++j)
+        for (int j{0}; j < b.m_cols; ++j)
         {
-            std::cout << at(i, j);
+            out << b.at(i, j);
         }
-        std::cout << '\n';
+        out << '\n';
     }
-    std::cout << "Generation: " << m_generation
-    << "\t Cells alive: " << m_living_cells << '\n';
+    out << "Generation: " << b.m_generation
+    << "\t Cells alive: " << b.m_living_cells << '\n';
+    return out;
 }
 
 void Board::update()

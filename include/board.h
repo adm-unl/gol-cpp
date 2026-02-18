@@ -32,12 +32,11 @@ public:
     Cell& at(int r, int c) { return m_array[r * m_cols + c]; }
     const Cell& at(int r, int c) const { return m_array[r * m_cols + c]; }
 
-    void display() const;
-
     void update();
 
     void randomise(double density);
 
+    friend std::ostream& operator<<(std::ostream& out, const Board& b);
 
 private:
     int m_rows{};
